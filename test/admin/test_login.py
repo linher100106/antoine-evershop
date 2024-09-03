@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class TestLogin:
 
     def test_successful_login(self, driver):
+        # Accéder à la page d'administration du site
         driver.get("http://localhost:3000/admin")
         
         email_input = driver.find_element(By.NAME, "email")
