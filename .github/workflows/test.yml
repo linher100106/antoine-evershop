@@ -56,7 +56,7 @@ jobs:
 
       - name: Create admin user
         run: |
-          docker exec evershop-automation-tests_app_1 npm run user:create -- --email "test@test.fr" --password "tesoijdzat" --name "test"
+          docker exec evershop-automation-tests_app_1 npm run user:create -- --email "a.nouvene@it-students.fr" --password "jeTeste24$" --name "anouv"
 
       - name: Run tests and generate HTML report
         run: |
