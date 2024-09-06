@@ -3,8 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-class TestLogin:
+from conftestLocal import driverLocal as driver
 
+class TestLogin:
     def test_successful_login(self, driver):
         # Accéder à la page d'administration du site
         driver.get("http://localhost:3000/admin")
@@ -14,8 +15,6 @@ class TestLogin:
         login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 
         # Se connecter
-        # test
-        # test .....
         email_input.send_keys("a.nouvene@it-students.fr")
         password_input.send_keys("jeTeste24$")
         login_button.click()
@@ -23,3 +22,10 @@ class TestLogin:
         WebDriverWait(driver, 10).until(EC.title_contains("Dashboard"))
         
         assert "Dashboard" in driver.title
+
+
+# Ex
+# if __name__ == "__main__":
+#     login = TestLogin()
+#     login.test_successful_login(driver)
+
