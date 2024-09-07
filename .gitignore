@@ -18,3 +18,7 @@ cypress
 .prettierignore
 .prettierrc
 mysqlToPostgres.js
+
+# project
+output.json
+archive/
