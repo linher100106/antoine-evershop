@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-#from conftestLocal import driverLocal
 
 class TestLogin:
     def test_successful_login(self, driver):
