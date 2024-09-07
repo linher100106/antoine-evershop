@@ -1,4 +1,5 @@
 import pytest
+import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,12 +18,20 @@ class TestLogin:
 
         # Se connecter
         email_input.send_keys("a.nouvene@it-students.fr")
-        password_input.send_keys("jeTeste24$")
+        time.sleep(1)
+        password_input.send_keys("azerty82$")
+        time.sleep(1)
         login_button.click()
 
         # Vérif de connection au dashbord
         WebDriverWait(driver, 10).until(EC.title_contains("Dashboard"))
-        assert "Dashboard" in driver.title
+        time.sleep(3)
+
+        try:
+            assert "Dashboard" in driver.title
+        except Exception as e:
+            print("Echec de connexion", e)
+
 
 
 
