@@ -1,9 +1,9 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service
+# from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
-
+from test_login_error import TestLoginError
 from test_login import TestLogin
 from test_products import TestProducts
 from test_add_product import TestAddProduct
@@ -24,9 +24,14 @@ def driverLocal():
 
     return driver
 
-# Connexion
-login = TestLogin()
+# Connexion error
+loginError = TestLoginError()
 driver = driverLocal()
+loginError.test_error_login(driver)
+print("Login error passed")
+
+# Connexion succès
+login = TestLogin()
 login.test_successful_login(driver)
 print("Login passed")
 
