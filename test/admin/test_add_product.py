@@ -8,6 +8,7 @@ from selenium import webdriver
 class TestAddProduct(TestProducts):
 
     def test_add_new_product(self, driver):
+
         self.test_click_on_product(driver)
         new_product_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "//a[@href='/admin/products/new' and contains(@class, 'button primary')]"))

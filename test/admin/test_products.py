@@ -5,8 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from test_login import TestLogin
 
 class TestProducts(TestLogin):
-
     def test_click_on_product(self, driver):
+        # Selection catalogue
         catalog_menu = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, "//span[text()='Catalog']"))
         )
