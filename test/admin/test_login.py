@@ -22,7 +22,7 @@ class TestLogin:
         time.sleep(1)
         login_button.click()
 
-        # Vérif de connection au dashbord
+        # Vérifier la connexion au dashbord
         WebDriverWait(driver, 10).until(EC.title_contains("Dashboard"))
         time.sleep(3)
 
