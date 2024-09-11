@@ -3,7 +3,10 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
+
 from test_login import TestLogin
+from test_products import TestProducts
+from test_add_product import TestAddProduct
 
 
 def driverLocal():
@@ -21,7 +24,21 @@ def driverLocal():
 
     return driver
 
-
+# Connexion
 login = TestLogin()
-login.test_successful_login(driverLocal())
-print("ok")
+driver = driverLocal()
+login.test_successful_login(driver)
+print("Login passed")
+
+# Liste de produits
+product = TestProducts()
+product.test_click_on_product(driver)
+print("Product passed")
+
+# Ajout d'un nouveau produit
+addproduct = TestAddProduct()
+addproduct.test_add_new_product(driver)
+print("Add product passed")
+
+
+

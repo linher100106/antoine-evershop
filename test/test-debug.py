@@ -6,6 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 
+from admin.test_login import TestLogin
+
 # Variable globale pour spécifier une fonction précise à tester
 FUNCTION_TO_TEST = "test_login"  # Met le nom de la fonction ici pour tester (ex: "test_click_on_product")
 
@@ -49,14 +51,14 @@ def run_tests_in_dependency_order(test_classes, driver):
                 continue  # Si on est en mode debug et on a spécifié une fonction, on exécute seulement celle-ci
 
             # Exécute le test
-            execute_test(driver, test_class_instance, method)
-            executed_tests.add(method)
+            execute_test(driver, TestLogin(), "test_successful_login")
+            executed_tests.add("test_successful_login")
 
-    for test_class in test_classes:
-        test_class_instance = test_class()
+    # for test_class in test_classes:
+    #     test_class_instance = test_class()
 
         # Exécute les tests dans la classe
-        execute_dependent_tests(test_class_instance)
+        execute_dependent_tests(TestLogin())
 
 
 if __name__ == "__main__":
@@ -64,6 +66,7 @@ if __name__ == "__main__":
     options.add_argument("--disable-search-engine-choice-screen")
     # options.add_argument("--headless")  # Peut être activé si tu ne veux pas voir le navigateur
     options.add_argument("--no-sandbox")
+    options.add_argument("--disable-popup-blocking")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--remote-debugging-port=9222")
 
@@ -71,7 +74,8 @@ if __name__ == "__main__":
 
     try:
         # Détection automatique des modules de test dans le répertoire actuel
-        test_modules = get_all_test_modules(".")
+        #test_modules = get_all_test_modules("admin")
+        test_modules = ["test_login"]
 
         # Collecte de toutes les classes de tests dans les modules
         test_classes = []
@@ -79,6 +83,6 @@ if __name__ == "__main__":
             test_classes.extend(get_test_classes_from_module(module))
 
         # Exécute les tests avec les dépendances
-        run_tests_in_dependency_order(test_classes, driver)
+        run_tests_in_dependency_order(["TestLogin"], driver)
     finally:
         driver.quit()
