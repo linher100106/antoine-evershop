@@ -22,3 +22,4 @@ mysqlToPostgres.js
 # project
 output.json
 archive/
+test/admin/__pycache__/
