@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from test_products import TestProducts
 from selenium import webdriver
 
+#penser à supprimer à chaque fois le produit dejà créé dans le panneau admin
 class TestAddProduct(TestProducts):
 
     def test_add_new_product(self, driver):
