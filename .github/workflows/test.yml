@@ -27,6 +27,7 @@ jobs:
           sudo apt-get install -y google-chrome-stable
           python -m venv venv
           source venv/bin/activate
+          pip install webdriver-manager
           pip install -r requirements.txt
           pip install pytest-html-reporter
 
